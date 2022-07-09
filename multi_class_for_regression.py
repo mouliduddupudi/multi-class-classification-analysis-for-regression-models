@@ -1,8 +1,13 @@
 def muli_class(actual, predictions):
     """
     Confusion matrix
-		The inputs should be numpy array
+    The inputs should be numpy array
     """
+
+    from sklearn.metrics import confusion_matrix
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+	
     act = actual.copy() #numpy array
     pred = predictions.copy() #numpy array
     lb = min(min(act), min(pred))
@@ -39,6 +44,7 @@ def muli_class(actual, predictions):
         else:
             lol = y_labels
         for k in range(len(r)):
+		
             if k == 0:
                 lol.insert(k,str(r[k+1]))
             if k >0 and (k < (len(r)-1)):
@@ -46,10 +52,6 @@ def muli_class(actual, predictions):
             if k == len(r)-1:
                 lol.insert(k,str(r[k]))
 
-
-    from sklearn.metrics import confusion_matrix
-    import matplotlib.pyplot as plt
-    import seaborn as sns
 
     cm = confusion_matrix(act, pred)
     cmn = cm / cm.astype(np.float).sum(axis = 0)
@@ -61,7 +63,6 @@ def muli_class(actual, predictions):
     recall = np.append(recall, z, axis=0)
     cm_extended = np.append(cm_extended, recall, axis=1)
 
-    # Normalise
     fig, ax = plt.subplots(figsize=(10,10))
     sns.heatmap(cm_extended, annot=True, fmt='.2f', xticklabels=x_labels, yticklabels=y_labels)
     plt.ylabel('Actual')
