@@ -9,4 +9,11 @@ and another model on the other, then ensembling the models may result in predict
 
 A keen analysis on which model is performing good on what range of values will helps in understanding of the model and in finalizing it. 
 
-# An Example (LogPgenTrain.png)
+# Example
+
+![An example inference result](LogPgenTrain.png)
+
+
+Here the results are normalized to look the percentages, If you want to see actual number of values in that range, please remove np.sum in the code.
+
+**If you find any mistakes or disagree with any of the explanations, please do not hesitate to submit an issue. I welcome any feedback, positive or negative!**
